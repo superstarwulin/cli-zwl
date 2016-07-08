@@ -1,0 +1,17 @@
+{
+  "name": "zwl",
+  "version": "1.0.0",
+  "description": "wulin tool",
+  "main": "index.js",
+  "bin": {
+    "zwl": "bin/zwl"
+  },
+  "author": "wulin.zwl@taobao.com",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
+  "devDependencies": {
+    "shelljs": "^0.7.0"
+  }
+}
