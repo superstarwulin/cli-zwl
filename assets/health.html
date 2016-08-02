@@ -12,16 +12,28 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title></title>
 </head>
-<body>
+<style>
+    body {
+        background: url("https://img.alicdn.com/tps/TB1MTjzLXXXXXXAXFXXXXXXXXXX-2560-1600.jpg" ) repeat-y 0 0;
+        background-size: 100% ;
+        text-align:center;
+    }
+
+    </style>
+<body >
 <form id="J_MainList" onsubmit="return false" >
     智能机器女孩子小静
     <button>try</button>
+    </br>
+    <audio style="display:none" src="http://qqma.tingge123.com:83/123/2013/07/%E4%B8%8B%E8%AF%BE%E9%93%83%E5%A3%B0.mp3" controls="controls">
+        Your browser does not support the audio element.
+    </audio>
 
 </form>
 <script src="http://g.tbcdn.cn/kissy/k/1.4.1/seed-min.js" replace="LIB:kissy" ></script>
 <script>
 
-    var min = 30;
+    var min = 20;
 
 
     KISSY.config({debug:true});
@@ -36,6 +48,7 @@
     // notification for this tag will be displayed.
 
     var button = document.querySelector('button');
+    var audio = document.querySelector('audio');
 
     var notify = function() {
         var options = {
@@ -51,6 +64,7 @@
         };
         n.onclose = function() {
             console.log('Closed.');
+            audio.pause();
         };
         n.onshow = function() {
             console.log('Shown.');
@@ -66,6 +80,8 @@
     },detal);
 
     button.onclick = function() {
+        audio.play();
+
         if (!('Notification' in window)) {
             alert('This browser does not support desktop notification');
         } else if (Notification.permission === 'granted') {
