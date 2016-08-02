@@ -12,6 +12,7 @@
     "commander": "^2.9.0"
   },
   "devDependencies": {
+    "open": "0.0.5",
     "shelljs": "^0.7.0"
   }
 }

@@ -6,10 +6,11 @@ program
     .usage('[command] [options]')
     .option('-b, --blog', '一键打包部署更新博客内容')
     .option('-d, --demo','初始化blog目录以及html文件')
+    .option('-x, --xiaoj','智能提醒女孩子')
     .parse(process.argv);
 
 if(program.blog) {
-    console.log('update blog')
+    console.log('updating  blog (superstarwulin.github.io) ...')
     require('../lib/blog').exec();
 };
 
@@ -17,6 +18,10 @@ if(program.blog) {
 if(program.demo){
     require('../lib/initdemo').exec(program.args);
 };
+
+if(program.xiaoj){
+    require('../lib/xj').xj();
+}
 
 if(program.args.length ==0){
     console.log(program.help());
