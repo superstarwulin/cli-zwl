@@ -12,13 +12,23 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title></title>
 </head>
+<!-- https://img.alicdn.com/tps/TB1Nj2wLXXXXXa2XFXXXXXXXXXX-700-933.jpg -->
 <style>
     body {
+
         background: url("https://img.alicdn.com/tps/TB1MTjzLXXXXXXAXFXXXXXXXXXX-2560-1600.jpg" ) repeat-y 0 0;
         background-size: 100% ;
         text-align:center;
+        font-size: 31px;
     }
-
+    .cbox{
+        margin-top:200px;
+        font-size: 25px;
+        text-align:center;
+    }
+    .cbox #cdbCtontainer{
+        color:#;
+    }
     </style>
 <body >
 <form id="J_MainList" onsubmit="return false" >
@@ -28,16 +38,43 @@
     <audio style="display:none" src="http://qqma.tingge123.com:83/123/2013/07/%E4%B8%8B%E8%AF%BE%E9%93%83%E5%A3%B0.mp3" controls="controls">
         Your browser does not support the audio element.
     </audio>
-
+    <div class="cbox">
+        <h1>还剩休息时间</h1>
+         <div id="cdbCtontainer"></div>
+    </div>
 </form>
+
 <script src="http://g.tbcdn.cn/kissy/k/1.4.1/seed-min.js" replace="LIB:kissy" ></script>
+
+<script src="http://g.alicdn.com/mui/countdown/3.0.5/??seed.js,index.js" replace="LIB:kissy" ></script>
+
 <script>
 
-    var min = 20;
+    var min = 10;
+
+    if(location.href.split('=').length==2){
+        min = location.href.split('=')[1];
+    }
 
 
     KISSY.config({debug:true});
     'use strict';
+    var detal = 1000*60*min;
+
+
+    KISSY.use('mui/countdown/',function(S,CDn){
+        var a = new CDn('#cdbCtontainer',{
+            'format' : '{d}天{h}时{m}分{s-t}秒',
+            'autoFormat' : true,
+            'timeToDouble' : true,
+            'forceFrequency' : null,
+            '_targetTime' : new Date().getTime()+detal,
+            '_serverTime' : new Date().getTime(), //new Date().getTime()
+            'rule' : [
+            ],
+            'className' : 'ui-cd-normal'
+        });
+    })
 
     /* globals Notification */
 
@@ -71,7 +108,6 @@
         };
     };
 
-    var detal = 1000*60*min;
     setTimeout(function(){
         KISSY.use('event',function(S,Event){
             Event.fire(button,'click');
