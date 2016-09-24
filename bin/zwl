@@ -7,6 +7,7 @@ program
     .option('-b, --blog', '一键打包部署更新博客内容')
     .option('-d, --demo','初始化blog目录以及html文件')
     .option('-x, --xiaoj','智能提醒女孩子')
+    .option('-c, --gitcommit','智能提醒女孩子')
     .parse(process.argv);
 
 if(program.blog) {
@@ -21,6 +22,12 @@ if(program.demo){
 
 if(program.xiaoj){
     require('../lib/xj').xj();
+}
+
+
+if(program.gitcommit){
+    require('../lib/gitcommit').c(program.args);
+
 }
 
 if(program.args.length ==0){

@@ -27,7 +27,6 @@
         text-align:center;
     }
     .cbox #cdbCtontainer{
-        color:#;
     }
     </style>
 <body >
@@ -40,7 +39,7 @@
     </audio>
     <div class="cbox">
         <h1>还剩休息时间</h1>
-         <div id="cdbCtontainer"></div>
+         <div id="cdbCtontainer" class="ui-cd-normal"></div>
     </div>
 </form>
 
@@ -50,7 +49,7 @@
 
 <script>
 
-    var min = 10;
+    var min = 20;
 
     if(location.href.split('=').length==2){
         min = location.href.split('=')[1];
@@ -67,11 +66,8 @@
             'format' : '{d}天{h}时{m}分{s-t}秒',
             'autoFormat' : true,
             'timeToDouble' : true,
-            'forceFrequency' : null,
             '_targetTime' : new Date().getTime()+detal,
             '_serverTime' : new Date().getTime(), //new Date().getTime()
-            'rule' : [
-            ],
             'className' : 'ui-cd-normal'
         });
     })
